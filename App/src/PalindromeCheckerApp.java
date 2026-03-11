@@ -3,77 +3,96 @@ import java.util.*;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
         System.out.print("Input: ");
         String input = sc.nextLine();
 
-        LinkedList<Character> list = new LinkedList<>();
-        for (char c : input.toCharArray()) {
-            list.add(c);
-        }
 
-        boolean isPalindrome = true;
-        while (list.size() > 1) {
-            if (!list.removeFirst().equals(list.removeLast())) {
+        public class PalindromeCheckerApp {
 
 
-                String input = "refer";
+            String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.Stack;
+
+            boolean isPalindrome = true;
+        for (int i = 0; i < normalized.length() / 2; i++) {
+                if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+
+        System.out.println("Is Palindrome? : " + isPalindrome);
+        sc.close();
+
+            private static boolean check(String s, int start, int end) {
+                if (start >= end) return true;
+                if (s.charAt(start) != s.charAt(end)) return false;
+                return check(s, start + 1, end - 1);
+            }
+
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                System.out.print("Input: ");
+                String input = sc.nextLine();
+
+                boolean result = check(input, 0, input.length() - 1);
+
+                System.out.println("Is Palindrome? : " + result);
+                sc.close();
+
+
+import java.util.*;
 
                 public class PalindromeCheckerApp {
+
+                    public static boolean twoPointerCheck(String input) {
+                        int start = 0;
+                        int end = input.length() - 1;
+
+                        while (start < end) {
+                            if (input.charAt(start) != input.charAt(end))
+                                return false;
+                            start++;
+                            end--;
+                        }
+
+                        return true;
+                    }
+
+                    public static boolean recursiveCheck(String input, int start, int end) {
+                        if (start >= end)
+                            return true;
+
+                        if (input.charAt(start) != input.charAt(end))
+                            return false;
+
+                        return recursiveCheck(input, start + 1, end - 1);
+                    }
+
+
                     public static void main(String[] args) {
-                        Deque<Character> deque = new ArrayDeque<>();
 
-                        String input = "civic";
+                        String str = "madam";
+                        boolean isPalindrome = true;
 
-                        Queue<Character> queue = new LinkedList<>();
-                        Stack<Character> stack = new Stack<>();
+                        long start1 = System.nanoTime();
+                        boolean result1 = twoPointerCheck(input);
+                        long end1 = System.nanoTime();
 
+                        long start2 = System.nanoTime();
+                        boolean result2 = recursiveCheck(input, 0, input.length() - 1);
+                        long end2 = System.nanoTime();
 
-                        for (char c : input.toCharArray()) {
-                            queue.add(c);
-                            stack.push(c);
+                        System.out.println("Two Pointer Result: " + result1);
+                        System.out.println("Execution Time: " + (end1 - start1) + " ns");
 
+                        System.out.println("Recursive Result: " + result2);
+                        System.out.println("Execution Time: " + (end2 - start2) + " ns");
 
-                            for (char c : input.toCharArray()) {
-                                deque.addLast(c);
-
-                                Scanner scanner = new Scanner(System.in);
-                                System.out.print("Enter a string to check if it is a palindrome: ");
-                                String originalString = scanner.nextLine();
-                                String reversedString = "";
-                                for (int i = originalString.length() - 1; i >= 0; i--) {
-                                    reversedString = reversedString + originalString.charAt(i);
+                        System.out.println("Input text: " + str);
+                        System.out.println("Is it a Palindrome: " + isPalindrome);
 
 
-                                }
-
-                                boolean isPalindrome = true;
-
-
-
-                                while (deque.size() > 1) {
-                                    if (!deque.removeFirst().equals(deque.removeLast())) {
-
-                                        while (!queue.isEmpty()) {
-                                            if (queue.remove() != stack.pop()) {
-
-
-                                                isPalindrome = false;
-                                                break;
-                                            }
-                                        }
-
-
-                                        System.out.println("Is Palindrome? : " + isPalindrome);
-                                        sc.close();
-
-                                        System.out.println("Input: " + input);
-                                        System.out.println("Is Palindrome? " + isPalindrome);
-                                        main
-                                    }
-                                }
+                    }
+                }
