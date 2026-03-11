@@ -21,6 +21,10 @@ public class PalindromeCheckerApp {
 
         scanner.close();
 
+    }
+}
+
+
 public class PalindromeCheckerApp {
     public static void main(String args[]){
         String str="madam";
@@ -36,3 +40,4 @@ public class PalindromeCheckerApp {
 
     }
 }
+
